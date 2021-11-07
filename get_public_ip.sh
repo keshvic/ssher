@@ -19,6 +19,7 @@ elif [[ $os == "Linux" ]]
     then
     echo "you are on a Linux"
     #work in progress
+    #Not Possible Today
 fi
 
     
