@@ -10,7 +10,7 @@ if [[ $os == "Darwin" ]] # Darwin = MAC
     echo "you are on a MAC"
     interface=$(networksetup -listallhardwareports | grep -A1 'Wi-Fi' | grep Device | awk '{print $2}')
     wifi_network=$(networksetup -getairportnetwork en0 | rev | awk '{print $1}' | rev)
-    if  [[ $wifi_network == "reesenfinch" ]]  # enter your wifi network name (SSID) here
+    if  [[ $wifi_network == "<read comment>" ]]  # enter your wifi network name (SSID) here
         then
         public_ip=$(curl -s ifconfig.me | egrep '[0-9]{3}\.[0-9]{3}\.[0-9]{3}\.[0-9]{3}')
         echo $public_ip | tee public_ip.txt
