@@ -9,9 +9,15 @@
 # 	    User ksh
 #   	Other settings ...
 # -------------
-old_public_ip=$(grep -A10 public ~/.ssh/config | grep HostName | awk '{print $2}')
-echo "your old ip $old_public_ip"
 new_public_ip=$(cat public_ip.txt)
 echo "your new ip $new_public_ip"
-sed -i.bak "s/$old_public_ip/$new_public_ip/" ~/.ssh/config
+old_public_ip=$(grep -A10 public ~/.ssh/config | grep HostName | awk '{print $2}')
+if [ -z "$old_public_ip" ]
+then
+    echo "you don't have old ip set"
+    sed -i.bak "s/HostName $old_public_ip/HostName $new_public_ip/" ~/.ssh/config
+else
+    echo "your old ip $old_public_ip"
+    sed -i.bak "s/$old_public_ip/$new_public_ip/" ~/.ssh/config
+fi
 echo "all done!"
