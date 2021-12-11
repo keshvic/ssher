@@ -12,7 +12,7 @@
 new_public_ip=$(cat public_ip.txt)
 echo "your new ip $new_public_ip"
 old_public_ip=$(grep -A10 public ~/.ssh/config | grep HostName | awk '{print $2}')
-if [[ "$new_public_ip" == "$old_public_ip"]]
+if [[ "$new_public_ip" = "$old_public_ip"]]
 then
     echo "your ip hasn't changed. all done!"
     break
