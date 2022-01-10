@@ -7,14 +7,15 @@
 if [ -e network_ssid.txt ] # check if desired network ssid is already saved for the script usage
 then
     ssid=`cat network_ssid.txt` 
-    read -p "Do you want to update desired wifi network name (y/n): " new_ssid_choice
+    read -p "Do you want to update desired wifi network name for the public IP (y/n): " new_ssid_choice
     if [[ $new_ssid_choice == "y" ]]
     then
-        read -p "Enter your new wifi network name (SSID): " new_ssid
+        read -p "Enter your new desired wifi network name for the public IP (SSID): " new_ssid
         echo "your new desired wifi network is: $new_ssid"
         echo "${new_ssid}" > network_ssid.txt # Now the desired network ssid is updated.
+    fi
 else
-    read -p "Enter your wifi network name (SSID): " ssid 
+    read -p "Enter your desired wifi network name for the public IP (SSID): " ssid 
     echo "your desired wifi network is: $ssid"
     echo "${ssid}" > network_ssid.txt # Now the desired network ssid is saved.
 fi
@@ -32,6 +33,3 @@ then
     #work in progress
     #Not Possible Today
 fi
-    
-
-

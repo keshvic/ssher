@@ -11,7 +11,6 @@ then
     ssid=$(cat network_ssid.txt)
     if [[ $os == "Darwin" ]] # Darwin = MAC
     then
-        echo "you are on a MAC"
         interface=$(networksetup -listallhardwareports | grep -A1 'Wi-Fi' | grep Device | awk '{print $2}')
         wifi_network=$(networksetup -getairportnetwork en0 | rev | awk '{print $1}' | rev)
         if  [[ $wifi_network == "$ssid" ]]  
@@ -30,6 +29,7 @@ then
     fi
 else
     echo "you haven't save desired wifi network. Script wont' work."
+fi
 if [ -e public_ip.txt ]
 then
     pubip=`cat public_ip.txt`
@@ -37,7 +37,3 @@ then
 else
     echo "script failed. No public IP found"
 fi
-
-    
-
-

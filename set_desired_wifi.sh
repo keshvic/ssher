@@ -32,13 +32,11 @@ then
         fi
     else
         echo "no change required. You are already on desired wifi network"
-        bash ./get_public_ip.sh
+        bash get_public_ip.sh
+    fi
 elif [[ $os == "Linux" ]]
 then
     echo "you are on a Linux/Windows Sub-system for Linux"
     #work in progress
     #Not Possible Today
 fi
-    
-
-
